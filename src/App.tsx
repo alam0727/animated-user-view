@@ -13,6 +13,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
+import Index from "./pages/Index";
 
 // Layout
 import DashboardLayout from "./components/dashboard/DashboardLayout";
@@ -22,10 +23,10 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <AuthProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+      <BrowserRouter>
+        <AuthProvider>
+          <Toaster />
+          <Sonner />
           <Routes>
             {/* Public routes */}
             <Route path="/login" element={<Login />} />
@@ -40,14 +41,14 @@ const App = () => (
               </Route>
             </Route>
             
-            {/* Redirect root to login */}
-            <Route path="/" element={<Navigate to="/login" replace />} />
+            {/* Root route */}
+            <Route path="/" element={<Index />} />
             
             {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </AuthProvider>
+        </AuthProvider>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
