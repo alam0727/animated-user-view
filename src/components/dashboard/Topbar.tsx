@@ -34,14 +34,16 @@ const Topbar = ({ toggleSidebar }: TopbarProps) => {
         <Menu size={20} />
       </button>
 
-      <div className="flex-1 flex items-center">
-        <div className="relative w-full max-w-md mr-4 hidden md:block">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder="Search..."
-            className="h-9 w-full rounded-md border border-input bg-background pl-8 pr-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          />
+      <div className="flex-1 flex items-center justify-start">
+        <div className="relative w-full max-w-md md:max-w-xs lg:max-w-md">
+          <div className="relative flex items-center">
+            <Search className="absolute left-2.5 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search..."
+              className="h-9 w-full rounded-md border border-input bg-background pl-8 pr-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            />
+          </div>
         </div>
       </div>
 
